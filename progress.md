@@ -2,9 +2,9 @@
 
 > 每次完成功能后更新此文件。新会话开始时先读此文件。
 
-## 最近更新：2026-02-14（四分类重构扫尾 + 文档全面同步 + 构建验证通过）
+## 最近更新：2026-02-14（内容大清洗：21 篇原创文章替换全部示例内容）
 
-## 当前状态：Phase 2 完成 + Phase 3 部分完成 + ✅ 四分类重构完成 + About 页面完成 + Vercel 已部署
+## 当前状态：Phase 2 完成 + Phase 3 部分完成 + ✅ 四分类重构完成 + About 页面完成 + Vercel 已部署 + ✅ 内容替换完成
 
 ## 已完成
 
@@ -127,6 +127,16 @@
   - APP_FLOW.md — 路由表更新为 8 条；导航栏更新
 - **最终构建验证：** `npx next build` 通过，29 页面全部正确生成，无类型错误
 
+### 内容大清洗：21 篇原创文章替换全部示例内容 ✅（2026-02-14）
+- **删除所有旧示例文章**（thinking 7篇 + craft 2篇 + muse 7篇 + life 2篇）
+- **新建 21 篇原创中文文章：**
+  - content/thinking/（12 篇）：general-relativity, quantum-mechanics, entropy, self-discipline, existentialism, narcissism-hidden, intellectualization, meaning-of-life, flow-and-creation, east-west-philosophy, human-nature, systems-metacognition
+  - content/craft/（4 篇）：vibe-coding, ai-era-shift, desktop-robot, geek-workflow
+  - content/muse/（3 篇）：rationality-sensibility, neuroscience-growth, mind-body
+  - content/life/（2 篇）：perfectionism, small-town-grinder
+- **所有文章遵循 frontmatter 规范**，日期分散在 2026-01 ~ 2026-02
+- **文章风格**：中文写作，300-600 字，理性分析与个人感悟结合，数字花园笔记风格
+
 ## 接下来
 
 ### Phase 3 剩余：
@@ -136,7 +146,7 @@
 4. 目录组件（Table of Contents）
 5. ~~"关于我"页面~~ ✅
 6. RSS 订阅
-7. 添加真实内容（替换示例文章）
+7. ~~添加真实内容（替换示例文章）~~ ✅
 
 ## 已知问题
 
@@ -161,5 +171,5 @@ src/components/layout/        → Navbar, Footer
 src/config/site.ts            → 站名、导航(4项)、分类(4项)、花园/造物记筛选配置
 src/lib/content.ts            → Markdown 文件读取解析（遍历 4 个分类目录）
 src/app/globals.css           → 设计令牌 + 暗色模式 + 动画 + 文章排版
-content/{thinking,craft,muse,life}/  → Markdown 文章源文件（四分类）
+content/{thinking,craft,muse,life}/  → Markdown 文章源文件（thinking 12篇 + craft 4篇 + muse 3篇 + life 2篇 = 21篇）
 ```
