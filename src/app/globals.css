@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* ===== Design Tokens (CSS Variables) ===== */
+@theme {
+  /* Typography */
+  --font-serif: "Merriweather", Georgia, "Noto Serif SC", "Songti SC", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Colors - Light Mode (修道院纸张色系) */
+  --color-bg-primary: #F7F5EB;
+  --color-bg-secondary: #EDE9D5;
+  --color-bg-elevated: #FFFFFF;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #8a8a8a;
+  --color-border: #e0ddd3;
+  --color-accent: #5c6bc0;
+  --color-accent-hover: #3f51b5;
+
+  /* Spacing */
+  --spacing-page: 2rem;
+
+  /* Layout */
+  --width-content: 48rem;
+  --width-wide: 72rem;
+
+  /* Transitions */
+  --transition-base: 200ms ease;
+  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms ease;
+}
+
+/* ===== Dark Mode Tokens ===== */
+@layer base {
+  .dark {
+    --color-bg-primary: #0a0a0a;
+    --color-bg-secondary: #141414;
+    --color-bg-elevated: #1e1e1e;
+    --color-text-primary: #e8e6e1;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #666666;
+    --color-border: #2a2a2a;
+    --color-accent: #7986cb;
+    --color-accent-hover: #5c6bc0;
+  }
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: background-color var(--transition-slow),
+                color var(--transition-base);
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+  }
+
+  /* Smoother font rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+}
+
+/* ===== Custom Animations ===== */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* ===== Article Content Typography ===== */
+/* 
+  这些样式控制文章正文的排版。
+  使用 CSS 类选择器而非 Tailwind，因为文章内容是 HTML 字符串（dangerouslySetInnerHTML），
+  我们无法给每个生成的 HTML 元素加 Tailwind 类名。
+*/
+.article-content {
+  font-size: 1.125rem;    /* 18px — 正文字不小 */
+  line-height: 1.8;       /* 宽松行高，阅读不累 */
+  color: var(--color-text-primary);
+}
+
+.article-content h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+}
+
+.article-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.article-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.article-content p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  line-height: 1.8;
+}
+
+.article-content blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.article-content ul,
+.article-content ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.article-content li {
+  margin: 0.5em 0;
+  line-height: 1.75;
+}
+
+.article-content ul li {
+  list-style-type: disc;
+}
+
+.article-content a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.article-content a:hover {
+  text-decoration: underline;
+}
+
+.article-content code {
+  background-color: var(--color-bg-secondary);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5em 0;
+}
+
+.article-content strong {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.article-content em {
+  font-style: italic;
+}
