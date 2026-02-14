@@ -32,11 +32,11 @@
 
 ## Phase 3：部署与内容扩展（当前阶段 🔵）
 
-- [ ] 3.1 部署到 Vercel（连接 GitHub + 配置自定义域名）
+- [x] 3.1 部署到 Vercel（GitHub 已连接，digital-monastery.vercel.app 已上线，自定义域名 xymspace.xyz DNS 待生效）
 - [ ] 3.2 MDX 支持（替换手写 Markdown 渲染器）
 - [ ] 3.3 代码高亮（rehype-pretty-code 或 shiki）
 - [ ] 3.4 目录组件（Table of Contents）
-- [ ] 3.5 "关于我"页面
+- [x] 3.5 "关于我"页面
 - [ ] 3.6 RSS 订阅
 - [ ] 3.7 添加真实内容（替换示例文章）
 - [x] 3.8 格物致知页面重构（Garden 风格 + 三维筛选系统）
@@ -44,6 +44,14 @@
 - [x] 3.10 数据模型扩展（PostMeta 新增 stage/topic/noteType/author/coverColor）
 - [x] 3.11 新组件创建（StageIndicator, GardenGrid, BookCard, BookPlaceholder）
 - [x] 3.12 示例内容丰富（thinking 7篇 + reading 6篇）
+- [x] 3.13 四分类重构（三分类 → Thinking/Craft/Muse/Life）
+  - 类型系统：ContentCategory、CraftTopic、CraftNoteType 等
+  - 配置：navConfig(4项)、categoryConfig(4项)、craftTopics、craftNoteTypes
+  - 页面：/craft(新建)、/reading→/muse(迁移)、/about(新建)
+  - 内容迁移：content/reading/ → content/muse/、tech 文章 → content/craft/
+  - GardenGrid 泛化：Thinking/Craft 共用
+  - 导航栏、首页、Footer、sitemap 全部适配
+  - 全部文档同步更新
 
 ## Phase 4：高级特性（远期）
 

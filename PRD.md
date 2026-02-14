@@ -20,11 +20,21 @@
 - [x] 导航入口：通往各分类
 - [x] 精选内容展示：代表作/置顶文章
 
-### 3.2 分类浏览页（/reading, /thinking, /life）
+### 3.2 四分类浏览页
+
+| 路由 | 名称 | 说明 |
+|------|------|------|
+| `/thinking` | 格物致知 | 哲学/心理/方法论 — Garden 三维筛选 |
+| `/craft` | 造物记 | 技术/工具/工程 — Garden 三维筛选 |
+| `/muse` | 感物 | 书/音乐/电影/美学 — BookCard 书架 |
+| `/life` | 浮生 | 成长日志/日常 — PostCard 列表 |
+
 - [x] 大尺寸文章卡片（一屏 3-4 个）
 - [x] 卡片包含：标题、副标题/描述、标签、日期
 - [x] 悬停动画（微妙提升 + 阴影变化）
 - [x] 页面标题 + 分类描述
+- [x] Thinking/Craft 共用 GardenGrid 三维筛选组件
+- [x] Muse 使用 BookCard 书架式 Grid 布局
 
 ### 3.3 文章详情页（/[category]/[slug]）
 - [x] Markdown 渲染（后续升级为 MDX）
@@ -37,6 +47,7 @@
 - [x] 响应式设计（Mobile-first）
 - [x] SEO 友好（OpenGraph、sitemap、robots）
 - [x] 404 页面
+- [x] "关于我"页面（/about）
 
 ## 4. 非目标（Not In Scope）
 

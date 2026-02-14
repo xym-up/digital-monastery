@@ -4,12 +4,12 @@ import { categoryConfig } from "@/config/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "读书时光",
-  description: categoryConfig.reading.description,
+  title: "感物",
+  description: categoryConfig.muse.description,
 };
 
-export default function ReadingPage() {
-  const posts = getPostsByCategory("reading");
+export default function MusePage() {
+  const posts = getPostsByCategory("muse");
 
   return (
     <div className="animate-fade-in">
@@ -17,10 +17,10 @@ export default function ReadingPage() {
         {/* Header — 居中大字 + 英文副标题 */}
         <div className="mb-20 pt-28 text-center md:pt-36">
           <h2 className="font-serif text-5xl tracking-tight text-[var(--color-text-primary)] md:text-6xl">
-            读书时光
+            感物
           </h2>
           <p className="mt-4 font-serif text-xl italic text-[var(--color-text-muted)]">
-            {categoryConfig.reading.description}
+            {categoryConfig.muse.description}
           </p>
         </div>
 

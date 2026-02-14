@@ -4,11 +4,27 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { StageIndicator, StageDot } from "./StageIndicator";
-import { gardenTopics, gardenStages, gardenNoteTypes } from "@/config/site";
 import type { PostMeta } from "@/types";
 
+/** 筛选选项 */
+interface FilterOption {
+  readonly label: string;
+  readonly value: string;
+}
+
 interface GardenGridProps {
+  /** 文章列表 */
   posts: (PostMeta & { slug: string })[];
+  /** 链接前缀，如 "/thinking" 或 "/craft" */
+  linkPrefix: string;
+  /** Topic 筛选选项列表 */
+  topics: readonly FilterOption[];
+  /** Stage 筛选选项列表 */
+  stages: readonly FilterOption[];
+  /** NoteType 筛选选项列表 */
+  noteTypes: readonly FilterOption[];
+  /** 空状态提示文案 */
+  emptyMessage?: string;
 }
 
 /** 自定义下拉选择器 */
@@ -19,7 +35,7 @@ function FilterDropdown({
   onChange,
 }: {
   label: string;
-  options: ReadonlyArray<{ label: string; value: string }>;
+  options: readonly FilterOption[];
   value: string;
   onChange: (val: string) => void;
 }) {
@@ -77,10 +93,17 @@ function FilterDropdown({
 }
 
 /**
- * 格物致知 - 花园网格
- * 三维过滤系统：主题(Topic) × 成长阶段(Stage) × 笔记类型(NoteType)
+ * 通用花园网格 — 带三维筛选的卡片网格
+ * 可复用于 Thinking、Craft 等需要 Topic × Stage × NoteType 筛选的页面
  */
-export function GardenGrid({ posts }: GardenGridProps) {
+export function GardenGrid({
+  posts,
+  linkPrefix,
+  topics,
+  stages,
+  noteTypes,
+  emptyMessage = "The soil is empty here. Plant a seed?",
+}: GardenGridProps) {
   const [topic, setTopic] = useState("all");
   const [stage, setStage] = useState("all");
   const [noteType, setNoteType] = useState("all");
@@ -101,7 +124,7 @@ export function GardenGrid({ posts }: GardenGridProps) {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           {/* Topic Pills */}
           <div className="flex flex-wrap gap-2">
-            {gardenTopics.map((t) => (
+            {topics.map((t) => (
               <button
                 key={t.value}
                 onClick={() => setTopic(t.value)}
@@ -120,13 +143,13 @@ export function GardenGrid({ posts }: GardenGridProps) {
           <div className="ml-auto flex gap-8 border-l border-[var(--color-border)] pl-8 md:ml-0">
             <FilterDropdown
               label="Growth"
-              options={gardenStages}
+              options={stages}
               value={stage}
               onChange={setStage}
             />
             <FilterDropdown
               label="Type"
-              options={gardenNoteTypes}
+              options={noteTypes}
               value={noteType}
               onChange={setNoteType}
             />
@@ -139,7 +162,7 @@ export function GardenGrid({ posts }: GardenGridProps) {
         {filtered.map((note, index) => (
           <Link
             key={note.slug}
-            href={`/thinking/${note.slug}`}
+            href={`${linkPrefix}/${note.slug}`}
             className="animate-fade-in-up"
             style={{ animationDelay: `${index * 80}ms` }}
           >
@@ -180,7 +203,7 @@ export function GardenGrid({ posts }: GardenGridProps) {
 
         {filtered.length === 0 && (
           <div className="col-span-full py-20 text-center font-serif italic text-[var(--color-text-muted)]">
-            The soil is empty here. Plant a seed?
+            {emptyMessage}
           </div>
         )}
       </div>

@@ -4,7 +4,7 @@ import { categoryConfig } from "@/config/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Life",
+  title: "浮生",
   description: categoryConfig.life.description,
 };
 

@@ -2,7 +2,7 @@
 title: "道德经"
 description: "老子两千五百年前的智慧 — 关于道、无为、以及水的哲学。"
 date: "2026-01-20"
-category: "reading"
+category: "muse"
 tags: ["哲学", "道家", "中国古典"]
 published: true
 author: "老子"

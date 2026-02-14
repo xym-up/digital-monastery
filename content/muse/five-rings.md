@@ -2,7 +2,7 @@
 title: "五轮书"
 description: "宫本武藏的兵法与生命哲学 — 地、水、火、风、空五卷的终极修行。"
 date: "2026-02-08"
-category: "reading"
+category: "muse"
 tags: ["哲学", "武道", "日本"]
 published: true
 author: "宫本武藏"

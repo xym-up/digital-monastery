@@ -2,11 +2,11 @@
 title: "Next.js 的建筑学"
 description: "通过粗野主义建筑的视角探索 Server Components：裸露的结构、原始的材料、功能即美学。"
 date: "2026-02-08"
-category: "thinking"
+category: "craft"
 tags: ["技术", "架构", "Next.js"]
 published: true
-topic: "tech"
-noteType: "patterns"
+topic: "web"
+noteType: "notes"
 stage: "budding"
 ---
 

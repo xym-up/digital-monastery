@@ -2,7 +2,7 @@
 title: "沉思录"
 description: "一个罗马皇帝的私人日记 — Marcus Aurelius 写给自己的灵魂对话。"
 date: "2026-02-01"
-category: "reading"
+category: "muse"
 tags: ["哲学", "斯多葛", "古典"]
 published: true
 author: "Marcus Aurelius"

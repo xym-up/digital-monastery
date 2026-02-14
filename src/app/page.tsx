@@ -100,7 +100,7 @@ export default function Home() {
                 最新文章
               </h2>
               <p className="mt-3 text-[var(--color-text-secondary)]">
-                近期写下的文字，关于阅读、思考与生活。
+                近期写下的文字，关于思考、造物、感物与浮生。
               </p>
             </div>
 

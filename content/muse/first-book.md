@@ -2,7 +2,7 @@
 title: "原子习惯"
 description: "微小的改变如何带来巨大的成果 — James Clear 用科学解构习惯的力量。"
 date: "2026-02-12"
-category: "reading"
+category: "muse"
 tags: ["习惯", "自我提升", "心理学"]
 published: true
 author: "James Clear"

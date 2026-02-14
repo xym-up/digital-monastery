@@ -2,7 +2,7 @@
 title: "思考，快与慢"
 description: "Daniel Kahneman 揭示大脑的两个系统 — 为什么我们的直觉如此不可靠。"
 date: "2026-01-15"
-category: "reading"
+category: "muse"
 tags: ["心理学", "认知科学", "决策"]
 published: true
 author: "Daniel Kahneman"

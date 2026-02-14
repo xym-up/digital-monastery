@@ -2,6 +2,32 @@
 
 > 每次遇到问题并解决后，记录在此。AI 每次会话开始时应审查此文件。
 
+## 2026-02-14
+
+### 14. 大型结构重构要分阶段做
+- 三分类→四分类重构涉及类型、配置、页面、内容、组件、文档六个层面
+- 正确顺序：类型层 → 配置层 → 内容迁移 → 页面/组件 → 文档同步 → 构建验证
+- 每一层改完后 `npx next build` 验证，而非等到最后才验证
+- 如果一次性改所有文件，出错时很难定位哪一层出问题
+
+### 15. 组件泛化优于复制粘贴
+- GardenGrid 最初硬编码了 thinking 的筛选配置和链接路径
+- 重构时将配置（topics/stages/noteTypes/linkPrefix）提升为 props，Thinking 和 Craft 共用同一个组件
+- 好处：新增分类时零组件代码修改，只需传入不同配置
+- 经验：设计组件时预留"配置注入"接口，即使当前只有一个消费者
+
+### 12. Vercel 部署流程
+- 代码推到 GitHub 后，在 vercel.com 导入仓库即可一键部署
+- Vercel 的 `.vercel.app` 域名在中国大陆被墙，必须绑定自定义域名才能国内访问
+- 自定义域名需要在域名注册商（如 Porkbun）配置 DNS 记录（A 记录 + CNAME）指向 Vercel
+- DNS 传播需要 5-30 分钟，期间域名状态会显示 Invalid Configuration
+- 如果国内仍无法访问，可以考虑把 DNS 托管到 Cloudflare 并开启 CDN 代理
+
+### 13. Git 基本工作流
+- `git init` → `git add -A` → `git commit -m "消息"` → `git remote add origin <URL>` → `git push -u origin main`
+- 后续更新只需：`git add -A` → `git commit -m "描述"` → `git push`
+- PowerShell 中 git 的 stderr 输出会被当成错误（exit code 1），但实际操作是成功的，看输出内容判断
+
 ## 2026-02-13
 
 ### 8. 客户端与服务端组件的分离策略

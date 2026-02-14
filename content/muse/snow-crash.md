@@ -2,7 +2,7 @@
 title: "Snow Crash"
 description: "Neal Stephenson 的赛博朋克先知之作 — Metaverse 一词的起源地。"
 date: "2026-01-10"
-category: "reading"
+category: "muse"
 tags: ["科幻", "赛博朋克", "技术"]
 published: true
 author: "Neal Stephenson"

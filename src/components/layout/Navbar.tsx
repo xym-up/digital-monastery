@@ -48,6 +48,17 @@ export function Navbar() {
             </Link>
           ))}
 
+          {/* Separator */}
+          <span className="h-4 w-px bg-[var(--color-border)]" aria-hidden="true" />
+
+          {/* About */}
+          <Link
+            href="/about"
+            className="py-2 text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-accent)]"
+          >
+            About
+          </Link>
+
           {/* Theme Toggle */}
           {mounted && (
             <button
@@ -103,6 +114,18 @@ export function Navbar() {
               </span>
             </Link>
           ))}
+
+          {/* Separator */}
+          <div className="mx-4 my-1 border-t border-[var(--color-border)]" />
+
+          {/* About */}
+          <Link
+            href="/about"
+            onClick={() => setMobileOpen(false)}
+            className="rounded-lg px-4 py-3 text-sm text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-bg-secondary)] hover:text-[var(--color-text-primary)]"
+          >
+            About
+          </Link>
         </div>
       </div>
     </header>

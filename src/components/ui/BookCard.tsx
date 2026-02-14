@@ -59,7 +59,7 @@ export function BookCard({ slug, meta }: BookCardProps) {
   const hasCover = Boolean(meta.coverImage);
 
   return (
-    <Link href={`/reading/${slug}`} className="group block">
+    <Link href={`/muse/${slug}`} className="group block">
       <div className="relative aspect-[2/3] overflow-hidden rounded-sm shadow-sm transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-xl">
         {hasCover ? (
           /* 有封面图的情况 */

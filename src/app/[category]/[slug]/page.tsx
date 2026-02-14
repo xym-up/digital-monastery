@@ -12,7 +12,7 @@ interface PostPageProps {
   params: Promise<{ category: string; slug: string }>;
 }
 
-const validCategories: Category[] = ["reading", "thinking", "life"];
+const validCategories: Category[] = ["thinking", "craft", "muse", "life"];
 
 export async function generateStaticParams() {
   return validCategories.flatMap((category) =>

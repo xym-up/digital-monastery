@@ -3,12 +3,10 @@
  * 
  * 内容文件存放在 /content 目录下，按分类组织：
  * content/
- *   reading/
- *     my-first-book-review.md
- *   thinking/
- *     some-thoughts.md
- *   life/
- *     daily-log.md
+ *   thinking/    ← 格物致知（哲学、心理学、方法论、世界观…）
+ *   craft/       ← 造物记（AI、软件、硬件、工具链…）
+ *   muse/        ← 感物（书、音乐、电影、美术、语录…）
+ *   life/        ← 浮生（成长日志、碎碎念、日常记录）
  */
 
 import fs from "fs";
@@ -47,11 +45,11 @@ export function getPostsByCategory(category: Category): (PostMeta & { slug: stri
         published: data.published !== false, // 默认发布
         coverImage: data.coverImage,
         readingTime: estimateReadingTime(content),
-        // Garden 专用字段
+        // 格物致知 / 造物记 共用字段
         stage: data.stage,
         topic: data.topic,
         noteType: data.noteType,
-        // Reading 专用字段
+        // 感物（Muse）专用字段
         author: data.author,
         coverColor: data.coverColor,
       };
@@ -66,7 +64,7 @@ export function getPostsByCategory(category: Category): (PostMeta & { slug: stri
 
 /** 获取所有文章 */
 export function getAllPosts(): (PostMeta & { slug: string })[] {
-  const categories: Category[] = ["reading", "thinking", "life"];
+  const categories: Category[] = ["thinking", "craft", "muse", "life"];
   return categories
     .flatMap((cat) => getPostsByCategory(cat))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

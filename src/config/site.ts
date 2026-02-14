@@ -22,27 +22,33 @@ export const siteConfig = {
 /** 导航配置 - 统一管理所有路由和导航项 */
 export const navConfig = {
   mainNav: [
-    { title: "Reading", href: "/reading", description: "读书时光" },
     { title: "Thinking", href: "/thinking", description: "格物致知" },
-    { title: "Life", href: "/life", description: "生活记录" },
+    { title: "Craft", href: "/craft", description: "造物记" },
+    { title: "Muse", href: "/muse", description: "感物" },
+    { title: "Life", href: "/life", description: "浮生" },
   ],
 } as const;
 
 /** 内容分类配置 */
 export const categoryConfig = {
-  reading: {
-    title: "读书时光",
-    description: "The quiet accumulation of other minds.",
-    slug: "reading",
-  },
   thinking: {
     title: "格物致知",
     description: "A collection of thoughts, philosophy, and knowledge cultivation.",
     slug: "thinking",
   },
+  craft: {
+    title: "造物记",
+    description: "Technical explorations, tools, and creative engineering.",
+    slug: "craft",
+  },
+  muse: {
+    title: "感物",
+    description: "Books, music, film, art — sensory and aesthetic encounters.",
+    slug: "muse",
+  },
   life: {
-    title: "Life",
-    description: "生活记录与日常 — 找到属于自己的节奏",
+    title: "浮生",
+    description: "个人编年史 — 成长日志、碎碎念、日常记录",
     slug: "life",
   },
 } as const;
@@ -54,14 +60,13 @@ export const gardenTopics = [
   { label: "All", value: "all" },
   { label: "Philosophy", value: "philosophy" },
   { label: "Psychology", value: "psychology" },
-  { label: "Literature", value: "literature" },
-  { label: "Tech", value: "tech" },
+  { label: "Methodology", value: "methodology" },
   { label: "Nature", value: "nature" },
   { label: "Society", value: "society" },
   { label: "Art", value: "art" },
 ] as const;
 
-/** 格物致知 - 笔记成长阶段 */
+/** 格物致知 - 笔记成长阶段（Thinking + Craft 共用） */
 export const gardenStages = [
   { label: "All", value: "all" },
   { label: "Seedling", value: "seedling" },
@@ -75,4 +80,25 @@ export const gardenNoteTypes = [
   { label: "Essays", value: "essays" },
   { label: "Notes", value: "notes" },
   { label: "Patterns", value: "patterns" },
+] as const;
+
+/** 造物记 - 主题标签配置 */
+export const craftTopics = [
+  { label: "All", value: "all" },
+  { label: "AI", value: "ai" },
+  { label: "Software", value: "software" },
+  { label: "Hardware", value: "hardware" },
+  { label: "Web", value: "web" },
+  { label: "Tools", value: "tools" },
+  { label: "CS", value: "cs" },
+] as const;
+
+/** 造物记 - 笔记类型 */
+export const craftNoteTypes = [
+  { label: "All", value: "all" },
+  { label: "Notes", value: "notes" },
+  { label: "Resources", value: "resources" },
+  { label: "Projects", value: "projects" },
+  { label: "Workflows", value: "workflows" },
+  { label: "Tutorials", value: "tutorials" },
 ] as const;
