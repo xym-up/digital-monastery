@@ -2,9 +2,9 @@
 
 > 每次完成功能后更新此文件。新会话开始时先读此文件。
 
-## 最近更新：2026-02-14（内容大清洗：21 篇原创文章替换全部示例内容）
+## 最近更新：2026-03-07（内容深度改写 + Muse 博物馆陈列 + About 真实化 + Craft 三篇新文章）
 
-## 当前状态：Phase 2 完成 + Phase 3 部分完成 + ✅ 四分类重构完成 + About 页面完成 + Vercel 已部署 + ✅ 内容替换完成
+## 当前状态：Phase 2 完成 + Phase 3 部分完成 + ✅ 四分类重构完成 + About 页面完成 + Vercel 已部署 + ✅ 内容替换完成 + ✅ 内容深度改写完成
 
 ## 已完成
 
@@ -137,6 +137,33 @@
 - **所有文章遵循 frontmatter 规范**，日期分散在 2026-01 ~ 2026-02
 - **文章风格**：中文写作，300-600 字，理性分析与个人感悟结合，数字花园笔记风格
 
+### 内容深度改写 + Muse 博物馆 + About 真实化 ✅（2026-03-07）
+- **Craft 新增 3 篇原创文章：**
+  - content/craft/ros2-turtlesim.md — ROS2 入门手记（turtlesim + Topic 通信）
+  - content/craft/pid-control-intuition.md — PID 控制的直觉理解（生活类比）
+  - content/craft/haloguard-devlog-1.md — HaloGuard 开发日志 #1（系统架构复盘）
+- **Thinking 改写 2 篇文章：**
+  - intellectualization.md — 加入焊电路板逃避场景、5分钟规则
+  - systems-metacognition.md — 加入 HaloGuard 项目实例、AI 时代思考、架构师思维
+- **Life 改写 2 篇文章：**
+  - small-town-grinder.md — 加入浙大细节、做题家→造物者转型
+  - perfectionism.md — 加入串口协议过度设计案例、标题改为"不完美的行动 > 完美的计划"
+- **Muse 页面大改版（博物馆陈列模式）：**
+  - 三区块布局：读书笔记（有文章链接）+ 书架陈列（纯展示）+ 音乐陈列
+  - 新组件：DisplayBookCard（展示型书籍卡片，不跳转）
+  - 新组件：MusicCard（正方形音乐卡片）
+  - 陈列书籍：禅与摩托车维修艺术、刀锋、纳尔奇思与歌尔德蒙、小王子、牧羊少年奇幻之旅、悉达多
+  - 陈列音乐：巴赫（哥德堡变奏曲、平均律）、莫扎特（安魂曲、第40号交响曲）
+- **About 页面改写：**
+  - 作者信息改为真实身份：肖一鸣，浙江大学海洋工程与技术大二
+  - 加入兴趣方向、当前项目、AI 辅助开发的坦诚说明
+- **首页改写：**
+  - 打字机文案更新为真实自我介绍
+- **站点配置更新：**
+  - siteConfig.author.name 改为"肖一鸣"
+  - siteConfig.author.bio 更新为真实描述
+- **构建验证：** `npx next build` 通过，35 页面全部正确生成
+
 ## 接下来
 
 ### Phase 3 剩余：
@@ -171,5 +198,5 @@ src/components/layout/        → Navbar, Footer
 src/config/site.ts            → 站名、导航(4项)、分类(4项)、花园/造物记筛选配置
 src/lib/content.ts            → Markdown 文件读取解析（遍历 4 个分类目录）
 src/app/globals.css           → 设计令牌 + 暗色模式 + 动画 + 文章排版
-content/{thinking,craft,muse,life}/  → Markdown 文章源文件（thinking 12篇 + craft 4篇 + muse 3篇 + life 2篇 = 21篇）
+content/{thinking,craft,muse,life}/  → Markdown 文章源文件（thinking 12篇 + craft 7篇 + muse 3篇 + life 2篇 = 24篇）
 ```

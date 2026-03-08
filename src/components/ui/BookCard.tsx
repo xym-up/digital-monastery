@@ -1,10 +1,26 @@
 import Link from "next/link";
-import { BookMarked } from "lucide-react";
+import { BookMarked, Music } from "lucide-react";
 import type { PostMeta } from "@/types";
 
 interface BookCardProps {
   slug: string;
   meta: PostMeta;
+}
+
+/** 展示型卡片 Props（无链接跳转） */
+interface DisplayBookCardProps {
+  title: string;
+  author?: string;
+  coverColor?: string;
+  description?: string;
+}
+
+/** 音乐卡片 Props */
+interface MusicCardProps {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  coverColor?: string;
 }
 
 /**
@@ -127,6 +143,112 @@ export function BookPlaceholder() {
       <span className="font-serif text-sm italic text-[var(--color-text-muted)]">
         To be read...
       </span>
+    </div>
+  );
+}
+
+/**
+ * 展示型书籍卡片 - 纯陈列，不跳转文章详情
+ * 用于书架展示区，展示尚无读书笔记的书籍
+ */
+export function DisplayBookCard({ title, author, coverColor, description }: DisplayBookCardProps) {
+  const colors = colorMap[coverColor ?? "stone"] ?? colorMap.stone;
+  const initial = title.charAt(0).toUpperCase();
+
+  return (
+    <div className="group block">
+      <div className="relative aspect-[2/3] overflow-hidden rounded-sm shadow-sm transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-xl">
+        <div
+          className={`flex h-full w-full flex-col items-center justify-center ${colors.bg} transition-all duration-700 group-hover:scale-105`}
+        >
+          <span
+            className={`font-serif text-6xl font-light opacity-20 ${colors.text} md:text-7xl`}
+          >
+            {initial}
+          </span>
+          <span
+            className={`mt-4 px-4 text-center font-serif text-sm font-medium leading-snug ${colors.text} md:text-base`}
+          >
+            {title}
+          </span>
+          {author && (
+            <span
+              className={`mt-2 text-center font-sans text-[10px] uppercase tracking-widest ${colors.accent}`}
+            >
+              {author}
+            </span>
+          )}
+        </div>
+
+        {/* Hover Overlay */}
+        {description && (
+          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            <h3 className="translate-y-4 font-serif text-lg leading-tight text-white transition-transform duration-500 delay-75 group-hover:translate-y-0 md:text-xl">
+              {title}
+            </h3>
+            {author && (
+              <p className="mt-1 translate-y-4 font-sans text-[10px] uppercase tracking-widest text-stone-300 transition-transform duration-500 delay-150 group-hover:translate-y-0">
+                {author}
+              </p>
+            )}
+            <p className="mt-2 line-clamp-3 translate-y-4 font-serif text-xs leading-relaxed text-stone-400 transition-transform duration-500 delay-200 group-hover:translate-y-0">
+              {description}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * 音乐卡片 - 正方形 1:1 比例，用于音乐陈列
+ */
+export function MusicCard({ title, subtitle, description, coverColor }: MusicCardProps) {
+  const colors = colorMap[coverColor ?? "slate"] ?? colorMap.slate;
+
+  return (
+    <div className="group block">
+      <div className="relative aspect-square overflow-hidden rounded-sm shadow-sm transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-xl">
+        <div
+          className={`flex h-full w-full flex-col items-center justify-center ${colors.bg} transition-all duration-700 group-hover:scale-105`}
+        >
+          <Music
+            size={40}
+            strokeWidth={1}
+            className={`opacity-30 ${colors.text}`}
+          />
+          <span
+            className={`mt-4 px-4 text-center font-serif text-sm font-medium leading-snug ${colors.text} md:text-base`}
+          >
+            {title}
+          </span>
+          {subtitle && (
+            <span
+              className={`mt-2 text-center font-sans text-[10px] uppercase tracking-widest ${colors.accent}`}
+            >
+              {subtitle}
+            </span>
+          )}
+        </div>
+
+        {/* Hover Overlay */}
+        {description && (
+          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            <h3 className="translate-y-4 font-serif text-lg leading-tight text-white transition-transform duration-500 delay-75 group-hover:translate-y-0">
+              {title}
+            </h3>
+            {subtitle && (
+              <p className="mt-1 translate-y-4 font-sans text-[10px] uppercase tracking-widest text-stone-300 transition-transform duration-500 delay-150 group-hover:translate-y-0">
+                {subtitle}
+              </p>
+            )}
+            <p className="mt-2 line-clamp-3 translate-y-4 font-serif text-xs leading-relaxed text-stone-400 transition-transform duration-500 delay-200 group-hover:translate-y-0">
+              {description}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

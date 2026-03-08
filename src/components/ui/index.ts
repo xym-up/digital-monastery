@@ -4,4 +4,4 @@ export { PostCard } from "./PostCard";
 export { Typewriter } from "./Typewriter";
 export { StageIndicator, StageDot } from "./StageIndicator";
 export { GardenGrid } from "./GardenGrid";
-export { BookCard, BookPlaceholder } from "./BookCard";
+export { BookCard, BookPlaceholder, DisplayBookCard, MusicCard } from "./BookCard";

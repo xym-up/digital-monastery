@@ -38,7 +38,7 @@
 - [ ] 3.4 目录组件（Table of Contents）
 - [x] 3.5 "关于我"页面
 - [ ] 3.6 RSS 订阅
-- [ ] 3.7 添加真实内容（替换示例文章）
+- [x] 3.7 添加真实内容（替换示例文章）
 - [x] 3.8 格物致知页面重构（Garden 风格 + 三维筛选系统）
 - [x] 3.9 读书时光页面重构（书架 Grid + BookCard）
 - [x] 3.10 数据模型扩展（PostMeta 新增 stage/topic/noteType/author/coverColor）

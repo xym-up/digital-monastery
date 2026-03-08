@@ -9,9 +9,9 @@ export const siteConfig = {
   url: "https://digital-monastery.dev", // 部署后替换
   locale: "zh-CN",
   author: {
-    name: "领航员",
+    name: "肖一鸣",
     email: "", // 填入你的邮箱
-    bio: "热爱思考与技术，正在进行内心整合，致力于有意义创作的大学生。",
+    bio: "浙江大学海洋工程与技术专业大二学生。对水下机器人、流体智能和具身智能方向感兴趣，正在从零开始积累科研经验。",
   },
   links: {
     github: "", // 填入你的 GitHub

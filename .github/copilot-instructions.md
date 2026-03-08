@@ -47,13 +47,13 @@ digital-monastery/
 ├── .github/
 │   └── copilot-instructions.md   ← AI 操作手册（本文件）
 ├── content/                       ← Markdown 文章内容
-│   ├── thinking/                  ← 格物致知（哲学/心理/方法论）
-│   │   └── welcome.md
-│   ├── craft/                     ← 造物记（技术/工具/工程）
-│   │   └── architecture-nextjs.md
-│   ├── muse/                      ← 感物（书/音乐/电影/美学）
-│   │   └── first-book.md
-│   └── life/                      ← 浮生（成长日志/日常）
+│   ├── thinking/                  ← 格物致知（哲学/心理/方法论）12篇
+│   │   └── ...
+│   ├── craft/                     ← 造物记（技术/工具/工程）7篇
+│   │   └── ...
+│   ├── muse/                      ← 感物（书/音乐/电影/美学）3篇
+│   │   └── ...
+│   └── life/                      ← 浮生（成长日志/日常）2篇
 │       └── daily-rhythm.md
 ├── public/                        ← 静态资源（图片等）
 ├── src/
@@ -83,7 +83,7 @@ digital-monastery/
 │   │       ├── Typewriter.tsx     ← 通用卡片网格（Thinking/Craft 共用 + 三维筛选器）
 │   │       ├── BookCard.tsx       ← 感物阶段指示器（Seedling/Budding/Evergreen）
 │   │       ├── GardenGrid.tsx     ← 格物致知卡片网格（客户端组件 + 三维筛选器）
-│   │       ├── BookCard.tsx       ← 读书时光书封卡片（CSS 渐变占位 + 悬停叠层）
+│   │       ├── BookCard.tsx       ← 书籍/音乐卡片（BookCard + DisplayBookCard + MusicCard + BookPlaceholder）
 │   │       └── BookPlaceholder    ← 装饰性"待读"空位（BookCard.tsx 中导出）
 │   ├── config/
 │   │   └── site.ts               ← 站点配置 + 导航(4项) + 分类(4项) + 花园/造物记筛选配置

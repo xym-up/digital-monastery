@@ -2,6 +2,19 @@
 
 > 每次遇到问题并解决后，记录在此。AI 每次会话开始时应审查此文件。
 
+## 2026-03-07
+
+### 16. 展示型组件与交互型组件分离
+- Muse 页面需要两种书籍卡片：有文章链接的 BookCard 和纯展示的 DisplayBookCard
+- 不要在一个组件里用 prop 控制"是否可点击"（if link then Link else div），而是拆成两个组件
+- 好处：类型更清晰，BookCard 的 slug 参数不会变成可选的
+- 同样的思路适用于 MusicCard（正方形比例，和 BookCard 的 2:3 不同）
+
+### 17. 文章改写要保持 frontmatter 兼容
+- 改写文章正文时，frontmatter 的 slug/category/topic/noteType/stage 等字段不能随意改
+- 否则其他页面的筛选器和链接会失效
+- 改写内容时只改正文和 title/description，其他字段保持稳定
+
 ## 2026-02-14
 
 ### 14. 大型结构重构要分阶段做
